@@ -1,0 +1,148 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--demo-border);
+  background: var(--demo-card);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  font-size: 0.9375rem;
+}
+
+.nav a {
+  color: var(--demo-muted);
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--accent);
+}
+
+.hero {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 24px 48px;
+  text-align: center;
+}
+
+.heroTitle {
+  margin: 0 0 16px;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.heroText {
+  margin: 0 0 28px;
+  color: var(--demo-muted);
+  font-size: 1.0625rem;
+}
+
+.cta {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.cta:hover {
+  background: var(--accent-hover);
+}
+
+.section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  width: 100%;
+}
+
+.sectionMuted {
+  background: var(--demo-card);
+  border-top: 1px solid var(--demo-border);
+  border-bottom: 1px solid var(--demo-border);
+}
+
+.aboutInner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  color: var(--demo-muted);
+}
+
+.sectionTitle {
+  margin: 0 0 24px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--demo-card);
+  border: 1px solid var(--demo-border);
+}
+
+.cardTitle {
+  margin: 0 0 8px;
+  font-size: 1.0625rem;
+}
+
+.cardText {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--demo-muted);
+  line-height: 1.5;
+}
+
+.contactText {
+  text-align: center;
+  color: var(--demo-muted);
+  margin: 0;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 24px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--demo-muted);
+  border-top: 1px solid var(--demo-border);
+}
+
+@media (max-width: 600px) {
+  .nav {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 40px;
+  }
+}

@@ -1,0 +1,22 @@
+.wrap {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--chat-surface) 72%, transparent) 0%,
+    color-mix(in srgb, var(--chat-surface) 88%, transparent) 55%,
+    color-mix(in srgb, var(--chat-surface) 94%, transparent) 100%
+  );
+}
