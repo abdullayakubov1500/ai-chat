@@ -1,5 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { mockAgentProfile } from '../mocks/agentProfile.mock.js';
+import { shopConfig } from '../mocks/shopConfig.mock.js';
 import { getAgentReply } from '../services/chatAgent.js';
 
 function createMessage(role, text) {
@@ -50,6 +51,8 @@ export function useChat() {
 
     setIsOpen(true);
     sendLockRef.current = true;
+
+    let conversationForApi = [];
     setMessages((prev) => {
       const next = [...prev];
       if (!hasGreetedRef.current && next.length === 0) {
@@ -57,19 +60,20 @@ export function useChat() {
         next.push(createMessage('agent', mockAgentProfile.welcomeMessage));
       }
       next.push(createMessage('user', text));
+      conversationForApi = next;
       return next;
     });
     setIsTyping(true);
 
     try {
-      const reply = await getAgentReply(text);
+      const reply = await getAgentReply(text, conversationForApi);
       setMessages((prev) => [...prev, createMessage('agent', reply)]);
     } catch {
       setMessages((prev) => [
         ...prev,
         createMessage(
           'agent',
-          'Сейчас не удалось получить ответ. Попробуйте ещё раз чуть позже.',
+          `Сейчас не удалось получить ответ. По автотоварам напишите марку и модель ещё раз. По ремонту звоните в мастерскую: ${shopConfig.workshopPhone}.`,
         ),
       ]);
     } finally {

@@ -1,9 +1,11 @@
+import { shopConfig } from './shopConfig.mock.js';
+
 export const mockAgentProfile = {
   id: 'agent-1',
-  name: 'Алексей — ИИ-ассистент',
+  name: `Консультант ${shopConfig.name}`,
   status: 'online',
   statusLabel: 'В сети',
   avatarUrl: '/avatars/agent.svg',
   welcomeMessage:
-    'Здравствуйте! Я виртуальный ассистент. Помогу с вопросами о сервисе, тарифах и подключении. Чем могу помочь?',
+    `Здравствуйте! Помогу подобрать автотовары: масла, фильтры, аккумуляторы, шины и аксессуары. По ремонту и другим вопросам звоните в мастерскую: ${shopConfig.workshopPhone}. Что ищете для вашего авто?`,
 };

@@ -15,6 +15,11 @@
   background: var(--input-bg);
 }
 
+.fieldListening {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
 .textarea {
   flex: 1;
   border: none;
@@ -37,6 +42,53 @@
 
 .textarea:disabled {
   opacity: 0.6;
+}
+
+.mic {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--chat-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.mic:hover:not(:disabled) {
+  background: var(--chip-hover);
+  color: var(--accent);
+}
+
+.mic:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.mic:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.micActive {
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: var(--accent);
+  animation: micPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes micPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 6px transparent;
+  }
 }
 
 .send {
@@ -75,6 +127,12 @@
 
 @media (max-width: 480px) {
   .hint {
-    display: none;
+    min-height: 1.1em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .micActive {
+    animation: none;
   }
 }
